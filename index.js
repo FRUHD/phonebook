@@ -63,7 +63,7 @@ app.get('/', (request, response) => {
 
 app.get('/api/info', (request, response) => {
     const utcDate1 = new Date(Date.now());
-    response.send(`<p>Phonebook has info for ${persons.length} people </p> <p>${utcDate1.toUTCString()}</p>`)
+    response.send(`<p>Phonebook has info for ${persons.length} people </p> <p>${utcDate1.toUTCString()}+0200 (Eastern European Standard Time)</p>`)
 })
 
 app.get('/api/persons', (request, response) => {
