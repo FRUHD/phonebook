@@ -61,6 +61,11 @@ app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
 })
 
+app.get('/api/info', (request, response) => {
+    const utcDate1 = new Date(Date.now());
+    response.send(`<p>Phonebook has info for ${persons.length} people </p> <p>${utcDate1.toUTCString()}</p>`)
+})
+
 app.get('/api/persons', (request, response) => {
     response.json(persons)
 })
