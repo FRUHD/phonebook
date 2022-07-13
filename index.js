@@ -4,6 +4,7 @@ const app = express()
 
 app.use(express.json())
 
+//3.1: Phonebook backend step1
 let persons = [
     { 
       "id": 1,
@@ -61,6 +62,7 @@ app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
 })
 
+//3.2: Phonebook backend step2
 app.get('/api/info', (request, response) => {
     const utcDate1 = new Date(Date.now());
     response.send(`<p>Phonebook has info for ${persons.length} people </p> <p>${utcDate1.toUTCString()}+0200 (Eastern European Standard Time)</p>`)
@@ -70,11 +72,10 @@ app.get('/api/persons', (request, response) => {
     response.json(persons)
 })
 
+//3.3: Phonebook backend step3
 app.get('/api/persons/:id', (request, response) => {
-    const id = Number(request.params.id)  //Change ID parameter to a number
-    // console.log(id)  //test ID number
+    const id = Number(request.params.id)
     const person = persons.find(person => person.id === id)
-    // response.json(note)
     if (person) {
         response.json(person)
     } else {
